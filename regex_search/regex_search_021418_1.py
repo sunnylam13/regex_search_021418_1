@@ -51,10 +51,16 @@ txt_file_list = [] # should be the string path of each text file
 
 def folder_finder(folder_path_input):
 	initial_folder = os.listdir(folder_path_input) # gets list of contents within the initially supplied folder
-	# loop through the contents and check if it is a folder
+	# cycle through the contents and check if it is a folder
 	# if it's a folder, add it to the `searchable_folder_list`
+	pass
 
 def file_finder(folder_path_input):
+	# the code takes a folder_path_input and gets list of contents
+	# cycle through each item in the returned list
+	# check if it's a file
+	# for this program it's specifically a `.txt` ending file
+	# for modifying this program for other document types you may alter this in the future
 	pass
 
 def add_txt_to_file_list_final(text_file):
