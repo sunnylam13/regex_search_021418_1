@@ -56,7 +56,7 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 
 file_list_processing = os.listdir(folder_path_input) # return list of filename strings for each file in the `path` arg
 
-print(file_list_processing) # for testing
+# print(file_list_processing) # for testing
 
 # get the absolute path of the file names
 # path is relative to the main program
