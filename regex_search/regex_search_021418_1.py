@@ -92,6 +92,7 @@ def file_list_fullPath_gen(file_list_processing):
 	return file_fullPath_item
 
 file_list_fullPath_final = file_list_fullPath_gen(file_list_processing)
+print("The file list with full paths for each folder or file is below.\n") # for testing
 print(file_list_fullPath_final) # for testing
 
 
