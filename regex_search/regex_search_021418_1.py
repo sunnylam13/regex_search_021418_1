@@ -111,7 +111,7 @@ file_list_fullPath_final = file_list_fullPath_gen(file_list_processing)
 # this may be a function that recursively calls itself as you can have nested folders
 # add each text file to list `file_list_final`
 
-# searchable_folder_list = [] # should be the string path of each folder
+searchable_folder_list = [] # should be the string path of each folder
 
 # searchable_file_list = [] # should be a string path to each file whether it's .txt or not
 
@@ -131,12 +131,13 @@ def analyze_file_folders(file_path_list):
 			# then run this function on the item again to append additional folders to `searchable_folder_list`
 			# eventually it should run out of folders
 			
-			# searchable_folder_list.append(item)
+			searchable_folder_list.append(item)
 
 			# technically you could write this to not even bother adding it to the `searchable_folder_list`
 			# just run this function recursively until all files have been analyzed if they meet the condition below and all text files found
+			# ERROR:  running into 5 level deep limit
 			
-			analyze_file_folders(item)
+			# analyze_file_folders(item)
 		elif os.path.isfile(item):
 			# else if the item is a file store it in `searchable_file_list` so that we can later sort out the `.txt` files out of everything else
 			# TODO:  to cut out the extra step of doing text files later, just write a function that analyzes whether said file is a text file and then store it in `txt_file_list`
@@ -174,6 +175,11 @@ def analyze_file_for_textFile(item_file_path):
 # use list `file_list_fullPath_final`
 
 analyze_file_folders(file_list_fullPath_final)
+
+# then run analyze_file_folders() again
+# there should be some sort of conditional loop to keep analyzing `searchable_folder_list` until it's exhausted
+
+searchable_folder_list(searchable_folder_list)
 
 # EXPECT:  ['../docs/testTxtFolder/doc1.txt','../docs/testTxtFolder/doc2.txt','../docs/testTxtFolder/doc3.txt','../docs/testTxtFolder/doc4.txt','../docs/testTxtFolder/doc5.txt']
 
