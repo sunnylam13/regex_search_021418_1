@@ -103,12 +103,27 @@ print(file_list_fullPath_final) # for testing
 
 searchable_folder_list = [] # should be the string path of each folder
 
+searchable_file_list = [] # should be a string path to each file whether it's .txt or not
+
 txt_file_list = [] # should be the string path of each text file
 
+# NOTE:  the inputted folder list should already in the form of string paths from `file_list_fullPath_gen` for example
 def folder_finder(folder_path_input):
-	initial_folder = os.listdir(folder_path_input) # gets list of contents within the initially supplied folder
+	folder_analyzed = os.listdir(folder_path_input) # gets list of contents within the initially supplied folder
 	# cycle through the contents and check if it is a folder
 	# if it's a folder, add it to the `searchable_folder_list`
+	# if we find a folder we store it in `searchable_folder_list` and then run file_finder() on it
+	
+	for item in folder_analyzed:
+		# check if the file is a folder
+		if os.path.isdir(item):
+			# if it is a folder store the folder (folder path) in `searchable_folder_list`
+			# then run this function on the item again to append additional folders to `searchable_folder_list`
+			# eventually it should run out of folders
+			searchable_folder_list.append(item)
+		elif os.path.isfile(item):
+			# else if the item is a file store it in `searchable_file_list` so that we can later sort out the `.txt` files out of everything else
+			# TODO:  to cut out the extra step of doing text files later, just write a function that analyzes whether said file is a text file and then store it in `txt_file_list`
 	pass
 
 def file_finder(folder_path_input):
