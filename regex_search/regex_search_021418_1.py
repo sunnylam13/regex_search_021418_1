@@ -197,7 +197,21 @@ print(searchable_folder_list) # for testing
 
 # if more folders are appended as the loop progresses, it only stops when no more folders have been appended to `searchable_folder_list`
 for folder in searchable_folder_list:
-	analyze_file_folders(folder)
+	# get the listing of files within the folder
+	# folder should be a folder path
+	get_files_within_folder = os.listdir(folder) # the result of this is a list of file names not paths
+	# add the folder path to file names to get file path
+	# requires a loop
+	# `folder` should be the base path to join to a filename
+	# `item` will be a filename that needs to be joined to a folder path
+	full_path_list = []
+	for item in get_files_within_folder:
+		file_path_fullItem = os.path.join(folder,item)
+		full_path_list.append(file_path_fullItem)
+
+	# this function requires a list of file and/or folder paths to work remember?
+	# `full_path_list` should now be a list of full path strings that lead to the files you want to analyze
+	analyze_file_folders(full_path_list)
 
 # EXPECT:  ['../docs/testTxtFolder/doc1.txt','../docs/testTxtFolder/doc2.txt','../docs/testTxtFolder/doc3.txt','../docs/testTxtFolder/doc4.txt','../docs/testTxtFolder/doc5.txt']
 
