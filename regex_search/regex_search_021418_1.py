@@ -58,26 +58,42 @@ file_list_processing = os.listdir(folder_path_input) # return list of filename s
 
 # print(file_list_processing) # for testing
 
-# get the absolute path of the file names
-# path is relative to the main program
-# NOTE:  this means .. to leave current folder of main program
-# usng os.path.join() should allow this file path to work on any OS running this program
+# # get the absolute path of the file names
+# # path is relative to the main program
+# # NOTE:  this means .. to leave current folder of main program
+# # usng os.path.join() should allow this file path to work on any OS running this program
 
-def file_list_absPath_gen(file_list_processing):
-	file_absPath = [] # empty list for absolute paths
+# def file_list_absPath_gen(file_list_processing):
+# 	file_absPath = [] # empty list for absolute paths
+# 	for filename in file_list_processing:
+# 		new_path = os.path.join(folder_path_input,filename) # take the relative path to input folder and join it to the filename to create the full file path
+# 		# print(new_path) # for testing
+# 		file_absPath.append(new_path)
+# 	return file_absPath
+
+# file_list_absPath_final = file_list_absPath_gen(file_list_processing)
+# print(file_list_absPath_final) # for testing
+
+# # get the relative path of the file names
+
+# def file_list_relPath_gen(file_list_processing):
+# 	pass
+
+# revise the list so the file list has strings of full paths to each of the files (whether relative or absolute)
+# since the user supplied the path in either form, the resulting list will use that form
+# no need to convert between absolute or relative paths
+
+def file_list_fullPath_gen(file_list_processing):
+	file_fullPath_item = [] # empty list for absolute paths
 	for filename in file_list_processing:
 		new_path = os.path.join(folder_path_input,filename) # take the relative path to input folder and join it to the filename to create the full file path
 		# print(new_path) # for testing
-		file_absPath.append(new_path)
-	return file_absPath
+		file_fullPath_item.append(new_path)
+	return file_fullPath_item
 
-file_list_absPath_final = file_list_absPath_gen(file_list_processing)
-print(file_list_absPath_final) # for testing
+file_list_fullPath_final = file_list_fullPath_gen(file_list_processing)
+print(file_list_fullPath_final) # for testing
 
-# get the relative path of the file names
-
-def file_list_relPath_gen(file_list_processing):
-	pass
 
 # check each item in file_list_processing to see if it's a folder
 # if it is, go deeper into it and get text files
