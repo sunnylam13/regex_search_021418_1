@@ -7,6 +7,10 @@
 
 import re, os
 
+#####################################
+# USER INPUT
+#####################################
+
 # get user supplied folder or folder path
 # TEST:  ../docs/testTxtFolder
 
@@ -17,15 +21,26 @@ folder_path_input = input("Please enter the folder or folder path of the text fi
 
 regex_input = input("Please enter the regex expression you want to search for:\n")
 
+#####################################
+# END USER INPUT
+#####################################
+
+#####################################
+# FOLDER ANALYSIS, FIND TEXT FILES
+#####################################
+
 # get a list of all the `.txt` files in the folder
 # EXPECTED OUTPUT:
 # ['docFolderL1', 'doc1.txt', 'doc3.txt', 'doc2.txt']
 
 file_list = os.listdir(folder_path_input) # return list of filename strings for each file in the `path` arg
 
-
-
 print(file_list)
+
+#####################################
+# END FOLDER ANALYSIS, FIND TEXT FILES
+#####################################
+
 
 # TODO:  code a way to search deeper into any additional folders for `.txt` files
 # print results to the terminal screen
