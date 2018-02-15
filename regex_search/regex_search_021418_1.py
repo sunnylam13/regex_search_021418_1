@@ -124,7 +124,7 @@ def analyze_file_folders(file_path_list):
 	# # if it's a folder, add it to the `searchable_folder_list`
 	# # if we find a folder we store it in `searchable_folder_list` and then run file_finder() on it
 	
-	for item in folder_analyzed:
+	for item in file_path_list:
 		# check if the file is a folder
 		if os.path.isdir(item):
 			# if it is a folder store the folder (folder path) in `searchable_folder_list`
