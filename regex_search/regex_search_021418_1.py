@@ -125,8 +125,11 @@ def analyze_file_folders(file_path_list):
 	# # if we find a folder we store it in `searchable_folder_list` and then run file_finder() on it
 	
 	for item in file_path_list:
+		# want this condition first to skip other steps
+		if item in searchable_folder_list:
+			pass # if the file path item is already in the `searchable_folder_list` then skip it
 		# check if the file is a folder
-		if os.path.isdir(item):
+		elif os.path.isdir(item):
 			# if it is a folder store the folder (folder path) in `searchable_folder_list`
 			# then run this function on the item again to append additional folders to `searchable_folder_list`
 			# eventually it should run out of folders
@@ -142,8 +145,6 @@ def analyze_file_folders(file_path_list):
 			# else if the item is a file store it in `searchable_file_list` so that we can later sort out the `.txt` files out of everything else
 			# TODO:  to cut out the extra step of doing text files later, just write a function that analyzes whether said file is a text file and then store it in `txt_file_list`
 			analyze_file_for_textFile(item)
-		elif item in searchable_folder_list:
-			pass # if the file path item is already in the `searchable_folder_list` then skip it
 		else:
 			print("It seems you've run into an error.")
 			break # break the loop here
