@@ -111,7 +111,7 @@ print(file_list_fullPath_final) # for testing
 # this may be a function that recursively calls itself as you can have nested folders
 # add each text file to list `file_list_final`
 
-searchable_folder_list = [] # should be the string path of each folder
+# searchable_folder_list = [] # should be the string path of each folder
 
 # searchable_file_list = [] # should be a string path to each file whether it's .txt or not
 
@@ -168,6 +168,17 @@ def analyze_file_for_textFile(item_file_path):
 # cycle through {{searchable_folder_list}} to find files
 # as you cycle through file list
 # if file is a .txt add it to list {{txt_file_list}}
+
+# cycle through the folder list and sub folders to find all text files
+# this should result in a list of all `.txt` files (i.e. file paths)
+# use list `file_list_fullPath_final`
+
+analyze_file_folders(file_list_fullPath_final)
+
+# EXPECT:  ['../docs/testTxtFolder/doc1.txt','../docs/testTxtFolder/doc2.txt','../docs/testTxtFolder/doc3.txt','../docs/testTxtFolder/doc4.txt','../docs/testTxtFolder/doc5.txt']
+
+print(txt_file_list) # for testing
+
 
 #####################################
 # END FOLDER ANALYSIS, FIND TEXT FILES
