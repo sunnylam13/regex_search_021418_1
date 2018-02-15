@@ -42,17 +42,17 @@ print(file_list_processing) # for testing
 
 # get the absolute path of the file names
 
-def file_list_absPath(file_list_processing):
+def file_list_absPath_gen(file_list_processing):
 	file_absPath = [] # empty list for absolute paths
 	for filename in file_list_processing:
-		os.path.abspath(filename).
+		os.path.abspath(filename).append(file_absPath)
 	return file_absPath
 
-file_list_absPath_final = file_list_absPath(file_list_processing)
+file_list_absPath_final = file_list_absPath_gen(file_list_processing)
 
 # get the relative path of the file names
 
-def file_list_relPath(file_list_processing):
+def file_list_relPath_gen(file_list_processing):
 	pass
 
 # check each item in file_list_processing to see if it's a folder
