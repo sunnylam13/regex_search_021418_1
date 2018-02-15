@@ -108,7 +108,7 @@ searchable_file_list = [] # should be a string path to each file whether it's .t
 txt_file_list = [] # should be the string path of each text file
 
 # NOTE:  the inputted folder list should already in the form of string paths from `file_list_fullPath_gen` for example
-def folder_finder(folder_path_input):
+def analyze_file_folders(folder_path_input):
 	folder_analyzed = os.listdir(folder_path_input) # gets list of contents within the initially supplied folder
 	# cycle through the contents and check if it is a folder
 	# if it's a folder, add it to the `searchable_folder_list`
@@ -124,18 +124,23 @@ def folder_finder(folder_path_input):
 		elif os.path.isfile(item):
 			# else if the item is a file store it in `searchable_file_list` so that we can later sort out the `.txt` files out of everything else
 			# TODO:  to cut out the extra step of doing text files later, just write a function that analyzes whether said file is a text file and then store it in `txt_file_list`
+			analyze_file_for_textFile(item)
 	pass
 
-def file_finder(folder_path_input):
-	# the code takes a folder_path_input and gets list of contents
-	# cycle through each item in the returned list
-	# check if it's a file
-	# for this program it's specifically a `.txt` ending file
-	# for modifying this program for other document types you may alter this in the future
+def analyze_file_for_textFile(file_path):
+	# a function that analyzes whether said file is a text file and then store it in `txt_file_list`
 	pass
 
-def add_txt_to_file_list_final(text_file):
-	pass
+# def file_finder(folder_path_input):
+# 	# the code takes a folder_path_input and gets list of contents
+# 	# cycle through each item in the returned list
+# 	# check if it's a file
+# 	# for this program it's specifically a `.txt` ending file
+# 	# for modifying this program for other document types you may alter this in the future
+# 	pass
+
+# def add_txt_to_file_list_final(text_file):
+# 	pass
 
 # cycle through folder list (file_list_processing) to find sub-directories
 
