@@ -4,13 +4,27 @@ This opens all `.txt` files in a folder and searches for any line that matches a
 
 The results are printed to the terminal screen.
 
+## Executing the Code / Usage
+
+The main file to execute is found:
+
+	regex_search_021418_1/regex_search
+
+The terminal activation usage command:
+
+	python3 regex_search_021418_1.py
+
 ## Test Data
 
 The test data folder path is:
 
-docs/testTxtFolder
+	docs/testTxtFolder
 
 (this is relative)
+
+The test regular expression is:
+
+	(doggy)
 
 ## References
 
