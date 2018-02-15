@@ -192,12 +192,16 @@ analyze_file_folders(file_list_fullPath_final)
 
 # analyze_file_folders(searchable_folder_list)
 
+print("Folders found in `searchable_folder_list` are:\n")
+print(searchable_folder_list) # for testing
+
 # if more folders are appended as the loop progresses, it only stops when no more folders have been appended to `searchable_folder_list`
 for folder in searchable_folder_list:
 	analyze_file_folders(folder)
 
 # EXPECT:  ['../docs/testTxtFolder/doc1.txt','../docs/testTxtFolder/doc2.txt','../docs/testTxtFolder/doc3.txt','../docs/testTxtFolder/doc4.txt','../docs/testTxtFolder/doc5.txt']
 
+print("Folders found in `txt_file_list` are:\n")
 print(txt_file_list) # for testing
 
 
