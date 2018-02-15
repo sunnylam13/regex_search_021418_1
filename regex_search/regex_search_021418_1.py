@@ -40,6 +40,13 @@ current_program_dir = os.getcwd() # aka. cwd
 relPath_from_cwd_to_inputFolder = os.path.relpath(folder_path_input,current_program_dir)
 print(relPath_from_cwd_to_inputFolder) # for testing
 
+def relPath_from_cwd_to_inputFolder(folder_path_input,current_program_dir):
+	# check if the inputted folder path is an absolute path or a relative path
+	# if it's an absolute path
+	# if it's a relative path
+	pass
+
+
 # get a list of all the `.txt` files in the folder
 
 # code a way to search deeper into any additional folders for `.txt` files
