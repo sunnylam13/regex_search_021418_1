@@ -102,8 +102,8 @@ def file_list_fullPath_gen(file_list_processing):
 	return file_fullPath_item
 
 file_list_fullPath_final = file_list_fullPath_gen(file_list_processing)
-print("The file list with full paths for each folder or file is below.\n") # for testing
-print(file_list_fullPath_final) # for testing
+# print("The file list with full paths for each folder or file is below.\n") # for testing
+# print(file_list_fullPath_final) # for testing
 
 
 # check each item in file_list_processing to see if it's a folder
@@ -118,11 +118,11 @@ print(file_list_fullPath_final) # for testing
 txt_file_list = [] # should be the string path of each text file
 
 # NOTE:  the inputted folder list should already in the form of string paths from `file_list_fullPath_gen` for example
-def analyze_file_folders(folder_path_input):
-	folder_analyzed = os.listdir(folder_path_input) # gets list of contents within the initially supplied folder
-	# cycle through the contents and check if it is a folder
-	# if it's a folder, add it to the `searchable_folder_list`
-	# if we find a folder we store it in `searchable_folder_list` and then run file_finder() on it
+def analyze_file_folders(file_path_list):
+	# folder_analyzed = os.listdir(folder_path_input) # gets list of contents within the initially supplied folder
+	# # cycle through the contents and check if it is a folder
+	# # if it's a folder, add it to the `searchable_folder_list`
+	# # if we find a folder we store it in `searchable_folder_list` and then run file_finder() on it
 	
 	for item in folder_analyzed:
 		# check if the file is a folder
