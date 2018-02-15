@@ -29,9 +29,20 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 # FOLDER ANALYSIS, FIND TEXT FILES
 #####################################
 
+# get current working directory as string value
+
+current_program_dir = os.getcwd() # aka. cwd
+
+# get the relative path from current working directory (where your program is) to the inputted folder
+# this allows you to generate a list of strings of the absolute path to the files
+# KEY POINT:  join this string to a filename to get it's actual path for purposes of using this program
+
+relPath_from_cwd_to_inputFolder = os.path.relpath(folder_path_input,current_program_dir)
+print(relPath_from_cwd_to_inputFolder) # for testing
+
 # get a list of all the `.txt` files in the folder
 
-# TODO:  code a way to search deeper into any additional folders for `.txt` files
+# code a way to search deeper into any additional folders for `.txt` files
 
 # EXPECTED OUTPUT:
 # ['docFolderL1', 'doc1.txt', 'doc3.txt', 'doc2.txt']
@@ -41,11 +52,15 @@ file_list_processing = os.listdir(folder_path_input) # return list of filename s
 print(file_list_processing) # for testing
 
 # get the absolute path of the file names
+# path is relative to the main program
+# NOTE:  this means .. to leave current folder of main program
+# usng os.path.join() should allow this file path to work on any OS running this program
 
 def file_list_absPath_gen(file_list_processing):
 	file_absPath = [] # empty list for absolute paths
 	for filename in file_list_processing:
-		os.path.abspath(filename).append(file_absPath)
+		new_path = os.path.join(relPath_from_cwd_to_inputFolder,filename) # take the relative path to input folder and join it to the filename to create the full file path
+		file_absPath.append(new_path)
 	return file_absPath
 
 file_list_absPath_final = file_list_absPath_gen(file_list_processing)
