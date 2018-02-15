@@ -67,24 +67,15 @@ file_list_fullPath_final = file_list_fullPath_gen(file_list_processing)
 # print(file_list_fullPath_final) # for testing
 
 
-# check each item in file_list_processing to see if it's a folder
-# if it is, go deeper into it and get text files
-# this may be a function that recursively calls itself as you can have nested folders
-# add each text file to list `file_list_final`
+# check each item in `file_list_fullPath_final` to see if it's a folder
 
 searchable_folder_list = [] # should be the string path of each folder
 
-# searchable_file_list = [] # should be a string path to each file whether it's .txt or not
 
 txt_file_list = [] # should be the string path of each text file
 
-# NOTE:  the inputted folder list should already in the form of string paths from `file_list_fullPath_gen` for example
-def analyze_file_folders(file_path_list):
-	# folder_analyzed = os.listdir(folder_path_input) # gets list of contents within the initially supplied folder
-	# # cycle through the contents and check if it is a folder
-	# # if it's a folder, add it to the `searchable_folder_list`
-	# # if we find a folder we store it in `searchable_folder_list` and then run file_finder() on it
-	
+# NOTE:  the inputted folder list should already in the form of string paths from `file_list_fullPath_gen` for each filename that was discovered using `os.listdir()`
+def analyze_file_folders(file_path_list):	
 	for item in file_path_list:
 		# want this condition first to skip other steps
 		# if item in searchable_folder_list:
@@ -97,23 +88,14 @@ def analyze_file_folders(file_path_list):
 			
 			searchable_folder_list.append(item)
 
-			# technically you could write this to not even bother adding it to the `searchable_folder_list`
-			# just run this function recursively until all files have been analyzed if they meet the condition below and all text files found
-			# ERROR:  running into 5 level deep limit
-			
-			# analyze_file_folders(item)
 		elif os.path.isfile(item):
 			# else if the item is a file store it in `searchable_file_list` so that we can later sort out the `.txt` files out of everything else
-			# TODO:  to cut out the extra step of doing text files later, just write a function that analyzes whether said file is a text file and then store it in `txt_file_list`
+
 			analyze_file_for_textFile(item)
 		else:
 			print("It seems you've run into an error.")
 			break # break the loop here
 
-	# # then run analyze_file_folders() again
-	# # there should be some sort of conditional loop to keep analyzing `searchable_folder_list` until it's exhausted
-
-	# analyze_file_folders(searchable_folder_list)
 
 def analyze_file_for_textFile(item_file_path):
 	# a function that analyzes whether said file is a text file and then store it in `txt_file_list`
@@ -135,8 +117,8 @@ analyze_file_folders(file_list_fullPath_final)
 
 # it should also result in a list of all folders that need to be searched again for nested or deeper sub-folders
 
-print("Folders found in `searchable_folder_list` are:\n")
-print(searchable_folder_list) # for testing
+# print("Folders found in `searchable_folder_list` are:\n")
+# print(searchable_folder_list) # for testing
 
 # if more folders are appended as the loop progresses, it only stops when no more folders have been appended to `searchable_folder_list`
 for folder in searchable_folder_list:
@@ -159,13 +141,25 @@ for folder in searchable_folder_list:
 # EXPECT:  
 # ['../docs/testTxtFolder/doc1.txt', '../docs/testTxtFolder/doc3.txt', '../docs/testTxtFolder/doc2.txt', '../docs/testTxtFolder/docFolderL1/doc4.txt', '../docs/testTxtFolder/docFolderL1/docFolderL2/doc5.txt']
 
-print("Folders found in `txt_file_list` are:\n")
+print("Folders found in `txt_file_list` are:\n") # for testing
 print(txt_file_list) # for testing
 
 
 #####################################
 # END FOLDER ANALYSIS, FIND TEXT FILES
 #####################################
+
+#####################################
+# TEXT DATA EXTRACTION
+#####################################
+
+
+
+#####################################
+# END TEXT DATA EXTRACTION
+#####################################
+
+
 
 # print results to the terminal screen
 
