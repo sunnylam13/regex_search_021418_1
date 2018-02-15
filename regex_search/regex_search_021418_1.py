@@ -29,22 +29,22 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 # FOLDER ANALYSIS, FIND TEXT FILES
 #####################################
 
-# get current working directory as string value
+# # get current working directory as string value
 
-current_program_dir = os.getcwd() # aka. cwd
+# current_program_dir = os.getcwd() # aka. cwd
 
-# get the relative path from current working directory (where your program is) to the inputted folder
-# this allows you to generate a list of strings of the absolute path to the files
-# KEY POINT:  join this string to a filename to get it's actual path for purposes of using this program
+# # get the relative path from current working directory (where your program is) to the inputted folder
+# # this allows you to generate a list of strings of the absolute path to the files
+# # KEY POINT:  join this string to a filename to get it's actual path for purposes of using this program
 
-relPath_from_cwd_to_inputFolder = os.path.relpath(folder_path_input,current_program_dir)
-print(relPath_from_cwd_to_inputFolder) # for testing
+# relPath_from_cwd_to_inputFolder = os.path.relpath(folder_path_input,current_program_dir)
+# print(relPath_from_cwd_to_inputFolder) # for testing
 
-def relPath_from_cwd_to_inputFolder(folder_path_input,current_program_dir):
-	# check if the inputted folder path is an absolute path or a relative path
-	# if it's an absolute path
-	# if it's a relative path
-	pass
+# def relPath_from_cwd_to_inputFolder(folder_path_input,current_program_dir):
+# 	# check if the inputted folder path is an absolute path or a relative path
+# 	# if it's an absolute path
+# 	# if it's a relative path
+# 	pass
 
 
 # get a list of all the `.txt` files in the folder
@@ -66,11 +66,13 @@ print(file_list_processing) # for testing
 def file_list_absPath_gen(file_list_processing):
 	file_absPath = [] # empty list for absolute paths
 	for filename in file_list_processing:
-		new_path = os.path.join(relPath_from_cwd_to_inputFolder,filename) # take the relative path to input folder and join it to the filename to create the full file path
+		new_path = os.path.join(folder_path_input,filename) # take the relative path to input folder and join it to the filename to create the full file path
+		# print(new_path) # for testing
 		file_absPath.append(new_path)
 	return file_absPath
 
 file_list_absPath_final = file_list_absPath_gen(file_list_processing)
+print(file_list_absPath_final) # for testing
 
 # get the relative path of the file names
 
