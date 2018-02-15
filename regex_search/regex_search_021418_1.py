@@ -39,24 +39,6 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 # FOLDER ANALYSIS, FIND TEXT FILES
 #####################################
 
-# # get current working directory as string value
-
-# current_program_dir = os.getcwd() # aka. cwd
-
-# # get the relative path from current working directory (where your program is) to the inputted folder
-# # this allows you to generate a list of strings of the absolute path to the files
-# # KEY POINT:  join this string to a filename to get it's actual path for purposes of using this program
-
-# relPath_from_cwd_to_inputFolder = os.path.relpath(folder_path_input,current_program_dir)
-# print(relPath_from_cwd_to_inputFolder) # for testing
-
-# def relPath_from_cwd_to_inputFolder(folder_path_input,current_program_dir):
-# 	# check if the inputted folder path is an absolute path or a relative path
-# 	# if it's an absolute path
-# 	# if it's a relative path
-# 	pass
-
-
 # get a list of all the `.txt` files in the folder
 
 # code a way to search deeper into any additional folders for `.txt` files
@@ -66,28 +48,7 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 
 file_list_processing = os.listdir(folder_path_input) # return list of filename strings for each file in the `path` arg
 
-# print(file_list_processing) # for testing
 
-# # get the absolute path of the file names
-# # path is relative to the main program
-# # NOTE:  this means .. to leave current folder of main program
-# # usng os.path.join() should allow this file path to work on any OS running this program
-
-# def file_list_absPath_gen(file_list_processing):
-# 	file_absPath = [] # empty list for absolute paths
-# 	for filename in file_list_processing:
-# 		new_path = os.path.join(folder_path_input,filename) # take the relative path to input folder and join it to the filename to create the full file path
-# 		# print(new_path) # for testing
-# 		file_absPath.append(new_path)
-# 	return file_absPath
-
-# file_list_absPath_final = file_list_absPath_gen(file_list_processing)
-# print(file_list_absPath_final) # for testing
-
-# # get the relative path of the file names
-
-# def file_list_relPath_gen(file_list_processing):
-# 	pass
 
 # revise the list so the file list has strings of full paths to each of the files (whether relative or absolute)
 # since the user supplied the path in either form, the resulting list will use that form
@@ -164,22 +125,7 @@ def analyze_file_for_textFile(item_file_path):
 	else:
 		pass # otherwise skip it and keep moving
 
-# def file_finder(folder_path_input):
-# 	# the code takes a folder_path_input and gets list of contents
-# 	# cycle through each item in the returned list
-# 	# check if it's a file
-# 	# for this program it's specifically a `.txt` ending file
-# 	# for modifying this program for other document types you may alter this in the future
-# 	pass
 
-# def add_txt_to_file_list_final(text_file):
-# 	pass
-
-# cycle through folder list (file_list_processing) to find sub-directories
-
-# cycle through {{searchable_folder_list}} to find files
-# as you cycle through file list
-# if file is a .txt add it to list {{txt_file_list}}
 
 # cycle through the folder list and sub folders to find all text files
 # this should result in a list of all `.txt` files (i.e. file paths)
@@ -187,10 +133,7 @@ def analyze_file_for_textFile(item_file_path):
 
 analyze_file_folders(file_list_fullPath_final)
 
-# then run analyze_file_folders() again
-# there should be some sort of conditional loop to keep analyzing `searchable_folder_list` until it's exhausted
-
-# analyze_file_folders(searchable_folder_list)
+# it should also result in a list of all folders that need to be searched again for nested or deeper sub-folders
 
 print("Folders found in `searchable_folder_list` are:\n")
 print(searchable_folder_list) # for testing
