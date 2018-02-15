@@ -66,7 +66,11 @@ def file_finder(folder_path_input):
 def add_txt_to_file_list_final(text_file):
 	pass
 
-# cycle through folder list to find sub-directories
+# cycle through folder list (file_list_processing) to find sub-directories
+
+# cycle through {{searchable_folder_list}} to find files
+# as you cycle through file list
+# if file is a .txt add it to list {{txt_file_list}}
 
 #####################################
 # END FOLDER ANALYSIS, FIND TEXT FILES
