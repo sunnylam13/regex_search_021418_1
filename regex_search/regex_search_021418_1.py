@@ -40,6 +40,21 @@ file_list_processing = os.listdir(folder_path_input) # return list of filename s
 
 print(file_list_processing) # for testing
 
+# get the absolute path of the file names
+
+def file_list_absPath(file_list_processing):
+	file_absPath = [] # empty list for absolute paths
+	for filename in file_list_processing:
+		os.path.abspath(filename).
+	return file_absPath
+
+file_list_absPath_final = file_list_absPath(file_list_processing)
+
+# get the relative path of the file names
+
+def file_list_relPath(file_list_processing):
+	pass
+
 # check each item in file_list_processing to see if it's a folder
 # if it is, go deeper into it and get text files
 # this may be a function that recursively calls itself as you can have nested folders
