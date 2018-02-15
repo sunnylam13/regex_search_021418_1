@@ -113,7 +113,7 @@ print(file_list_fullPath_final) # for testing
 
 searchable_folder_list = [] # should be the string path of each folder
 
-searchable_file_list = [] # should be a string path to each file whether it's .txt or not
+# searchable_file_list = [] # should be a string path to each file whether it's .txt or not
 
 txt_file_list = [] # should be the string path of each text file
 
@@ -130,17 +130,27 @@ def analyze_file_folders(folder_path_input):
 			# if it is a folder store the folder (folder path) in `searchable_folder_list`
 			# then run this function on the item again to append additional folders to `searchable_folder_list`
 			# eventually it should run out of folders
-			searchable_folder_list.append(item)
+			
+			# searchable_folder_list.append(item)
+
+			# technically you could write this to not even bother adding it to the `searchable_folder_list`
+			# just run this function recursively until all files have been analyzed if they meet the condition below and all text files found
+			
+			analyze_file_folders(item)
 		elif os.path.isfile(item):
 			# else if the item is a file store it in `searchable_file_list` so that we can later sort out the `.txt` files out of everything else
 			# TODO:  to cut out the extra step of doing text files later, just write a function that analyzes whether said file is a text file and then store it in `txt_file_list`
 			analyze_file_for_textFile(item)
-	pass
 
 def analyze_file_for_textFile(item_file_path):
 	# a function that analyzes whether said file is a text file and then store it in `txt_file_list`
-
-	pass
+	
+	# if the regex pattern for .txt endings is found in the file item's string file path
+	if textRegex_1.search(item_file_path):
+		# add the item/item path to txt_file_list
+		txt_file_list.append(item_file_path)
+	else:
+		pass # otherwise skip it and keep moving
 
 # def file_finder(folder_path_input):
 # 	# the code takes a folder_path_input and gets list of contents
