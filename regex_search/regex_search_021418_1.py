@@ -8,6 +8,16 @@
 import re, os
 
 #####################################
+# REGEX
+#####################################
+
+textRegex_1 = re.compile(r'(\.txt)') # https://regexr.com/3ksc4
+
+#####################################
+# END REGEX
+#####################################
+
+#####################################
 # USER INPUT
 #####################################
 
@@ -127,8 +137,9 @@ def analyze_file_folders(folder_path_input):
 			analyze_file_for_textFile(item)
 	pass
 
-def analyze_file_for_textFile(file_path):
+def analyze_file_for_textFile(item_file_path):
 	# a function that analyzes whether said file is a text file and then store it in `txt_file_list`
+
 	pass
 
 # def file_finder(folder_path_input):
