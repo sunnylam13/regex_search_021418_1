@@ -18,7 +18,7 @@ The terminal activation usage command:
 
 The test data folder path is:
 
-	docs/testTxtFolder
+	../docs/testTxtFolder
 
 (this is relative)
 
