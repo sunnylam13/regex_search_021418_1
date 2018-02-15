@@ -213,7 +213,8 @@ for folder in searchable_folder_list:
 	# `full_path_list` should now be a list of full path strings that lead to the files you want to analyze
 	analyze_file_folders(full_path_list)
 
-# EXPECT:  ['../docs/testTxtFolder/doc1.txt','../docs/testTxtFolder/doc2.txt','../docs/testTxtFolder/doc3.txt','../docs/testTxtFolder/doc4.txt','../docs/testTxtFolder/doc5.txt']
+# EXPECT:  
+# ['../docs/testTxtFolder/doc1.txt', '../docs/testTxtFolder/doc3.txt', '../docs/testTxtFolder/doc2.txt', '../docs/testTxtFolder/docFolderL1/doc4.txt', '../docs/testTxtFolder/docFolderL1/docFolderL2/doc5.txt']
 
 print("Folders found in `txt_file_list` are:\n")
 print(txt_file_list) # for testing
