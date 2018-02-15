@@ -126,10 +126,10 @@ def analyze_file_folders(file_path_list):
 	
 	for item in file_path_list:
 		# want this condition first to skip other steps
-		if item in searchable_folder_list:
-			pass # if the file path item is already in the `searchable_folder_list` then skip it
+		# if item in searchable_folder_list:
+		# 	pass # if the file path item is already in the `searchable_folder_list` then skip it
 		# check if the file is a folder
-		elif os.path.isdir(item):
+		if os.path.isdir(item):
 			# if it is a folder store the folder (folder path) in `searchable_folder_list`
 			# then run this function on the item again to append additional folders to `searchable_folder_list`
 			# eventually it should run out of folders
