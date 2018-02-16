@@ -32,6 +32,8 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 
 textRegex_1 = re.compile(r'(\.txt)') # https://regexr.com/3ksc4
 
+userRegex_1 = re.compile(r+""+regex_input) # what follows r is a string
+
 #####################################
 # END REGEX
 #####################################
@@ -161,7 +163,24 @@ print(txt_file_list) # for testing
 # print the result to the terminal screen
 # close each of the files as you finish the analysis
 
+for txt_file in txt_file_list:
+	# open each file in the `txt_file_list` for reading
+	txt_file_object = open(txt_file,'r') # this results in a file object
+	print(txt_file_target) # for testing
 
+	txt_file_lines = txt_file_object.readlines() # this is a list of lines
+
+	# find the user supplied regex expression target using findall() - which returns a list of strings
+	# loop through each of the lines in the list `txt_file_lines`
+	# search each line
+	# print the result of the findall() to the stcreen
+	# you'll also want to print which text file that findall() result came from
+	
+	for line in txt_file_lines:
+		find_results = re.findall(regex_input,line)
+
+	# close the text file
+	txt_file_object.close()
 
 #####################################
 # END TEXT DATA EXTRACTION
