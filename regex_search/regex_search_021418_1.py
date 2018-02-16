@@ -164,11 +164,11 @@ print(txt_file_list) # for testing
 # close each of the files as you finish the analysis
 
 for txt_file in txt_file_list:
-	# open each file in the `txt_file_list` for reading
+	# # open each file in the `txt_file_list` for reading
 	txt_file_object = open(txt_file,'r') # this results in a file object
-	print(txt_file_target) # for testing
+	# print(txt_file_target) # for testing
 
-	txt_file_lines = txt_file_object.readlines() # this is a list of lines
+	# txt_file_lines = txt_file_object.readlines() # this is a list of lines
 
 	# find the user supplied regex expression target using findall() - which returns a list of strings
 	# loop through each of the lines in the list `txt_file_lines`
@@ -176,8 +176,17 @@ for txt_file in txt_file_list:
 	# print the result of the findall() to the stcreen
 	# you'll also want to print which text file that findall() result came from
 	
-	for line in txt_file_lines:
-		find_results = re.findall(regex_input,line)
+	# for line in txt_file_lines:
+	# 	find_results = re.findall(regex_input,line)
+
+	# Feed the file text into findall(); it returns a list of all the found strings
+	# file.read() returns the whole text of a file in a single string
+	# whatever is shown is only whatever is found
+	find_results = re.findall(regex_input, txt_file_object.read())
+	print("The regex search results for file `%s` are:\n" % (txt_file))
+	for match in find_results:
+		print(match + "\n")
+
 
 	# close the text file
 	txt_file_object.close()
