@@ -32,7 +32,7 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 
 textRegex_1 = re.compile(r'(\.txt)') # https://regexr.com/3ksc4
 
-userRegex_1 = re.compile(r+""+regex_input) # what follows r is a string
+userRegex_1 = re.compile("r"+regex_input) # what follows r is a string
 
 #####################################
 # END REGEX
@@ -163,6 +163,18 @@ print(txt_file_list) # for testing
 # print the result to the terminal screen
 # close each of the files as you finish the analysis
 
+def txt_search_lazy_way(regex_input,txt_file_object):
+	# LAZY WAY
+	# Feed the file text into findall(); it returns a list of all the found strings
+	# file.read() returns the whole text of a file in a single string
+	# whatever is shown is only whatever is found
+	find_results = re.findall(regex_input, txt_file_object.read())
+	print("----------------------------------------------")
+	print("The regex search results for file `%s` are:\n" % (txt_file))
+	for match in find_results:
+		print(match + "\n")
+	print("----------------------------------------------")
+
 for txt_file in txt_file_list:
 	# # open each file in the `txt_file_list` for reading
 	txt_file_object = open(txt_file,'r') # this results in a file object
@@ -179,15 +191,18 @@ for txt_file in txt_file_list:
 	# for line in txt_file_lines:
 	# 	find_results = re.findall(regex_input,line)
 
-	# Feed the file text into findall(); it returns a list of all the found strings
-	# file.read() returns the whole text of a file in a single string
-	# whatever is shown is only whatever is found
-	find_results = re.findall(regex_input, txt_file_object.read())
-	print("----------------------------------------------")
-	print("The regex search results for file `%s` are:\n" % (txt_file))
-	for match in find_results:
-		print(match + "\n")
-	print("----------------------------------------------")
+	# # LAZY WAY
+	# # Feed the file text into findall(); it returns a list of all the found strings
+	# # file.read() returns the whole text of a file in a single string
+	# # whatever is shown is only whatever is found
+	# find_results = re.findall(regex_input, txt_file_object.read())
+	# print("----------------------------------------------")
+	# print("The regex search results for file `%s` are:\n" % (txt_file))
+	# for match in find_results:
+	# 	print(match + "\n")
+	# print("----------------------------------------------")
+
+	txt_search_lazy_way(regex_input,txt_file_object)
 
 
 	# close the text file
