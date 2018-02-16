@@ -183,9 +183,11 @@ for txt_file in txt_file_list:
 	# file.read() returns the whole text of a file in a single string
 	# whatever is shown is only whatever is found
 	find_results = re.findall(regex_input, txt_file_object.read())
+	print("----------------------------------------------")
 	print("The regex search results for file `%s` are:\n" % (txt_file))
 	for match in find_results:
 		print(match + "\n")
+	print("----------------------------------------------")
 
 
 	# close the text file
