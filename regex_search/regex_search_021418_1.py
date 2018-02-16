@@ -8,16 +8,6 @@
 import re, os
 
 #####################################
-# REGEX
-#####################################
-
-textRegex_1 = re.compile(r'(\.txt)') # https://regexr.com/3ksc4
-
-#####################################
-# END REGEX
-#####################################
-
-#####################################
 # USER INPUT
 #####################################
 
@@ -34,6 +24,18 @@ regex_input = input("Please enter the regex expression you want to search for:\n
 #####################################
 # END USER INPUT
 #####################################
+
+
+#####################################
+# REGEX
+#####################################
+
+textRegex_1 = re.compile(r'(\.txt)') # https://regexr.com/3ksc4
+
+#####################################
+# END REGEX
+#####################################
+
 
 #####################################
 # FOLDER ANALYSIS, FIND TEXT FILES
@@ -153,6 +155,12 @@ print(txt_file_list) # for testing
 # TEXT DATA EXTRACTION
 #####################################
 
+# open each file in the `txt_file_list` for reading
+# find the user supplied regex expression target
+# copy a certain segment or number of characters around that expression target (maybe using regex substitution to grab more)
+# print the result to the terminal screen
+# close each of the files as you finish the analysis
+
 
 
 #####################################
@@ -161,5 +169,5 @@ print(txt_file_list) # for testing
 
 
 
-# print results to the terminal screen
+
 
