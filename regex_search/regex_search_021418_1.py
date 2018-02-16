@@ -169,11 +169,19 @@ def txt_search_lazy_way(regex_input,txt_file_object):
 	# file.read() returns the whole text of a file in a single string
 	# whatever is shown is only whatever is found
 	find_results = re.findall(regex_input, txt_file_object.read())
-	print("----------------------------------------------")
+	print("----------------------------------------------\n")
 	print("The regex search results for file `%s` are:\n" % (txt_file))
-	for match in find_results:
-		print(match + "\n")
-	print("----------------------------------------------")
+
+	# either print the actual word matches
+	# for match in find_results:
+	# 	print(match + "\n")
+
+	# or simply print the number of matches
+	print("The number of regex matches for query are:  ")
+	print(len(find_results))
+	print("\n")
+
+	print("----------------------------------------------\n")
 
 def txt_search_long_way(regex_input,txt_file_object, txt_file_source):
 	# `txt_file_source` is the file you're reading from
@@ -191,13 +199,21 @@ def txt_search_long_way(regex_input,txt_file_object, txt_file_source):
 	for line in txt_file_lines:
 		# find_results = re.findall(regex_input,line)
 		if len(re.findall(regex_input,line)) > 0: # if the returned list of strings/results is > 0 meaning something was found 
-			print("----------------------------------------------")
+			print("----------------------------------------------\n")
 			print("The regex search results for file `%s` are:\n" % (txt_file_source))
 			# then print the line where the word was found
-			print(line + "\n\n")
-			for match in (re.findall(regex_input,line)):
-				print(match + "\n")
-			print("----------------------------------------------")
+			print(line + "\n")
+
+			# either print the actual word matches
+			# for match in (re.findall(regex_input,line)):
+			# 	print(match + "\n")
+
+			# or simply print the number of matches
+			print("The number of regex matches for query are:  ")
+			print(len(re.findall(regex_input,line)))
+			print("\n")
+
+			print("----------------------------------------------\n")
 
 for txt_file in txt_file_list:
 	# # open each file in the `txt_file_list` for reading
